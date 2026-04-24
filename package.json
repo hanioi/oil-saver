@@ -1,0 +1,9 @@
+{
+  "name": "oil-saver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "기름값 지킴이 — 오피넷 실시간 최저가 + 주유 가계부",
+  "engines": {
+    "node": ">=18"
+  }
+}
