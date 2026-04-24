@@ -251,8 +251,9 @@ let logs = JSON.parse(localStorage.getItem("oil_logs") || "[]");
 
 // ===== API 호출 =====
 async function opinet(endpoint, params = {}) {
-  const qs = new URLSearchParams({ out: "json", ...params }); // code는 서버에서 주입
-  const url = `${PROXY}/${endpoint}?${qs}`;
+  // /api/opinet?endpoint=avgAllPrice.do&prodcd=B027 식으로 호출
+  const qs = new URLSearchParams({ endpoint, ...params });
+  const url = `${PROXY}?${qs}`;
   const r = await fetch(url);
   if (!r.ok) throw new Error("API " + r.status);
   const j = await r.json();
